@@ -1,4 +1,6 @@
 
+import 'package:craftybay/ui/screen/email_verification_screen.dart';
+
 import '../screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     super.initState();
 
-    Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const HomeScreen()));
+    Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const EmailVerificationScreen()));
   }
   @override
   Widget build(BuildContext context) {
