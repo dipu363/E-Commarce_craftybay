@@ -1,5 +1,8 @@
 
+import 'package:craftybay/ui/screen/otp_verification_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 
 import '../utils/style.dart';
 
@@ -43,7 +46,12 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 hintext: 'Email Address',
               ),
               const SizedBox(height: 16),
-              CommonElevatedButton(title: 'Next', onTap: () {  },)
+              CommonElevatedButton(title: 'Next', onTap: () {
+                Get.to( const OtpVerificationScreen());
+              }),
+
+
+
             ],
           ),
         ),

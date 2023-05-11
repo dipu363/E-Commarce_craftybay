@@ -1,5 +1,6 @@
 
 import 'package:craftybay/ui/screen/email_verification_screen.dart';
+import 'package:craftybay/ui/screen/otp_verification_screen.dart';
 
 import '../screen/home_screen.dart';
 import 'package:flutter/material.dart';
