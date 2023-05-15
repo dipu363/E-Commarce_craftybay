@@ -1,7 +1,7 @@
-import 'package:craftybay/ui/screen/cart_screen.dart';
-import 'package:craftybay/ui/screen/home_screen.dart';
-import 'package:craftybay/ui/screen/wish_list_screen.dart';
-import 'package:craftybay/ui/utils/app_colors.dart';
+import '/ui/screen/cart_screen.dart';
+import '/ui/screen/home_screen.dart';
+import '/ui/screen/wish_list_screen.dart';
+import '/ui/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'category_screen.dart';

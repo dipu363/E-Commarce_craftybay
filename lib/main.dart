@@ -5,7 +5,7 @@
 // State management : GETX
 // Working flow : UI design => UI Functional => state management => API Integration
 
-import 'package:craftybay/ui/utils/app_colors.dart';
+import '../ui/utils/app_colors.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'ui/screen/splash_screen.dart';
@@ -39,6 +39,10 @@ class CraftyBay extends StatelessWidget {
         ),
       ),
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+          elevation: 1,
+        ),
         primaryColor: primaryColor,
         brightness: Brightness.light,
         elevatedButtonTheme: ElevatedButtonThemeData(
