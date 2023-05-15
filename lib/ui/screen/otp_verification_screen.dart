@@ -1,9 +1,10 @@
+import 'package:craftybay/ui/screen/complete_profile_screen.dart';
 import 'package:craftybay/ui/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../utils/style.dart';
-import '../widget/common_elevated_button.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
   const OtpVerificationScreen({Key? key}) : super(key: key);
@@ -54,17 +55,25 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   activeColor: primaryColor,
                   inactiveColor: primaryColor,
                   inactiveFillColor: Colors.white,
-
-
                 ),
-                animationDuration: Duration(milliseconds: 300),
+                animationDuration: const Duration(milliseconds: 300),
                 enableActiveFill: true,
                 onCompleted: (v) {},
                 onChanged: (value) {},
                 appContext: context,
               ),
               const SizedBox(height: 8),
-              CommonElevatedButton(title: 'Next', onTap: () {}),
+
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.to(const CompleteProfileScreen());
+                  },
+                  child: const Text('Next'),
+                ),
+              ),
+              // CommonElevatedButton(title: 'Next', onTap: () {}),
               const SizedBox(height: 16),
               RichText(
                 text: TextSpan(
@@ -76,9 +85,10 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     ]),
               ),
               const SizedBox(height: 8),
-              TextButton(onPressed: (){}, child: const Text('Resend Code'))
-            ],
+              TextButton(onPressed: () {
 
+              }, child: const Text('Resend Code'))
+            ],
           ),
         ),
       ),

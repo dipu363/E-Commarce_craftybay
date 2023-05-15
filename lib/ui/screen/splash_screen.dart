@@ -1,4 +1,5 @@
 
+import 'package:craftybay/ui/screen/bottom_nav_bar_screen.dart';
 import 'package:craftybay/ui/screen/email_verification_screen.dart';
 import 'package:craftybay/ui/screen/otp_verification_screen.dart';
 
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     super.initState();
 
-    Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const EmailVerificationScreen()));
+    Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const BottomNavBarScreen()));
   }
   @override
   Widget build(BuildContext context) {

@@ -5,6 +5,7 @@
 // State management : GETX
 // Working flow : UI design => UI Functional => state management => API Integration
 
+import 'package:craftybay/ui/utils/app_colors.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'ui/screen/splash_screen.dart';
@@ -22,9 +23,32 @@ class CraftyBay extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+
+      themeMode: ThemeMode.light,
+      darkTheme: ThemeData(
+        primaryColor: Colors.black,
+        brightness: Brightness.dark,
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.yellow,
+                textStyle: const TextStyle(
+                    fontWeight: FontWeight.w400
+                )
+            )
+        ),
+      ),
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: primaryColor,
+        brightness: Brightness.light,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+            textStyle: const TextStyle(
+                fontWeight: FontWeight.w400
+            )
+          )
+        ),
       ),
       home: const SplashScreen(),
     );
