@@ -43,7 +43,7 @@ class CraftyBay extends StatelessWidget {
             backgroundColor: Colors.white,
           elevation: 1,
         ),
-        primaryColor: primaryColor,
+
         brightness: Brightness.light,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
