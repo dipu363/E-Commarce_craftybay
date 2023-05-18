@@ -1,4 +1,6 @@
 
+import '../widget/caregoty_card_widget.dart';
+import '../widget/product_card_widget.dart';
 import '/ui/utils/app_colors.dart';
 
 import 'package:flutter/material.dart';
@@ -35,84 +37,92 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-            children:[
-              const  SearchTextField(),
-              const SizedBox(height: 16),
-              HomeCaroselWidget(),
-              const SizedBox(height: 8),
-               MarkerTitleWidget(
-                title: 'All Categories',
-                onTap: (){},
-              ),
-              const SizedBox(height: 8),
-               SingleChildScrollView(
-                 scrollDirection: Axis.horizontal,
-                 child: Row(
-                   children: const [
-                      CategoryCardWidget(name: 'Computer',),
-                      CategoryCardWidget(name: 'Electronics',),
-                      CategoryCardWidget(name: 'Food',),
-                      CategoryCardWidget(name: 'Accessories',),
-                      CategoryCardWidget(name: 'Home Appliance',),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+              children:[
+                const  SearchTextField(),
+                const SizedBox(height: 16),
+                HomeCaroselWidget(),
+                const SizedBox(height: 8),
+                 MarkerTitleWidget(
+                  title: 'All Categories',
+                  onTap: (){},
+                ),
+                const SizedBox(height: 8),
+                 SingleChildScrollView(
+                   scrollDirection: Axis.horizontal,
+                   child: Row(
+                     children: const [
+                        CategoryCardWidget(name: 'Computer',),
+                        CategoryCardWidget(name: 'Electronics',),
+                        CategoryCardWidget(name: 'Food',),
+                        CategoryCardWidget(name: 'Accessories',),
+                        CategoryCardWidget(name: 'Home Appliance',),
 
-                   ],
+                     ],
+                   ),
                  ),
-               ),
-               MarkerTitleWidget(
-                title: 'Popular',
-                 onTap: (){},
-              ),
-               MarkerTitleWidget(
-                 title: 'Spacial',
-                 onTap: (){},
-               ),
-               MarkerTitleWidget(
-                 title: 'New',
-                 onTap: (){},
-               ),
-        ],
+                const SizedBox(height: 8),
+                 MarkerTitleWidget(
+                  title: 'Popular',
+                   onTap: (){},
+                ),
+                const SizedBox(height: 8),
+                SingleChildScrollView(
+                   scrollDirection: Axis.horizontal,
+                   child: Row(
+                     children: const[
+                       ProductCardWidget(),
+                       ProductCardWidget(),
+                       ProductCardWidget(),
+                       ProductCardWidget(),
+                     ],
+                   ),
+                 ),
+                const SizedBox(height: 8),
+                 MarkerTitleWidget(
+                   title: 'Spacial',
+                   onTap: (){},
+                 ),
+                const SizedBox(height: 8),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: const[
+                      ProductCardWidget(),
+                      ProductCardWidget(),
+                      ProductCardWidget(),
+                      ProductCardWidget(),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+                 MarkerTitleWidget(
+                   title: 'New',
+                   onTap: (){},
+                 ),
+                const SizedBox(height: 8),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: const[
+                      ProductCardWidget(),
+                      ProductCardWidget(),
+                      ProductCardWidget(),
+                      ProductCardWidget(),
+                    ],
+                  ),
+                ),
+          ],
+          ),
         ),
       ),
     );
   }
 }
 
-class CategoryCardWidget extends StatelessWidget {
-  const CategoryCardWidget({
-    super.key, required this.name,
-  });
-
-  final String  name;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: primaryColor.withOpacity(.1),
-              borderRadius: BorderRadius.circular(8)
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Icon(Icons.computer,size: 28,color: primaryColor,),
-            ),
-
-          ),
-          const SizedBox(height: 8),
-           Text(name,textAlign: TextAlign.center,style: const TextStyle( fontWeight: FontWeight.w600,color: primaryColor,letterSpacing: 0.6,))
-        ],
-      ),
-    );
-  }
-}
 
 
 
