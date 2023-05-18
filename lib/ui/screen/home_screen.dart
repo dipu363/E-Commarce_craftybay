@@ -1,7 +1,6 @@
 
 import '../widget/caregoty_card_widget.dart';
 import '../widget/product_card_widget.dart';
-import '/ui/utils/app_colors.dart';
 
 import 'package:flutter/material.dart';
 

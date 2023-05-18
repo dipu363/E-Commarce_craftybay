@@ -1,9 +1,5 @@
 
 import 'package:craftybay/ui/screen/bottom_nav_bar_screen.dart';
-import 'package:craftybay/ui/screen/email_verification_screen.dart';
-import 'package:craftybay/ui/screen/otp_verification_screen.dart';
-
-import '../screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/app_colors.dart';
@@ -22,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     super.initState();
 
-    Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const BottomNavBarScreen()));
+    Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(BottomNavBarScreen()));
   }
   @override
   Widget build(BuildContext context) {
