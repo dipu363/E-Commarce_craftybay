@@ -19,7 +19,7 @@ class ProductCardWidget extends StatelessWidget {
             Image.asset(
               'assets/images/shoes1.jpg',
               width: 140,
-              height: 120,
+              height: 100,
               fit: BoxFit.fill,
             ),
             Padding(
