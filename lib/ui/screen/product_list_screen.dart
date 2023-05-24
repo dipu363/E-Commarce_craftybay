@@ -12,13 +12,14 @@ class ProductListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: GetBuilder<BottomNabBarController>(
+        leading:  GetBuilder<BottomNabBarController>(
 
-          builder: (controller) {
-            return IconButton(onPressed: () {
-              controller.backHome();
-            }, icon: const Icon(Icons.arrow_back_ios),);
-          }
+            builder: (controller) {
+              return IconButton(onPressed: () {
+                controller.backHome();
+              },
+                icon: const Icon(Icons.arrow_back_ios),);
+            }
         ),
         title: const Text('Product'),
 

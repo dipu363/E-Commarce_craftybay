@@ -1,9 +1,12 @@
 
+import 'package:craftybay/ui/screen/product_list_screen.dart';
+import 'package:craftybay/ui/state_managers/buttom_nav_bar_controller.dart';
+
 import '../widget/caregoty_card_widget.dart';
 import '../widget/product_card_widget.dart';
 
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../widget/home/app_bar_icon_boutton.dart';
 import '../widget/home/home_carosel.dart';
 import '../widget/home/marker_title.dart';
@@ -47,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 8),
                  MarkerTitleWidget(
                   title: 'All Categories',
-                  onTap: (){},
+                  onTap: (){
+                    Get.find<BottomNabBarController>().changeIndex(1);
+                  },
                 ),
                 const SizedBox(height: 8),
                  SingleChildScrollView(
@@ -66,7 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 8),
                  MarkerTitleWidget(
                   title: 'Popular',
-                   onTap: (){},
+                   onTap: (){
+                     Get.to(const ProductListScreen());
+                   },
                 ),
                 const SizedBox(height: 8),
                 SingleChildScrollView(
@@ -83,7 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 8),
                  MarkerTitleWidget(
                    title: 'Spacial',
-                   onTap: (){},
+                   onTap: (){
+                     Get.to(const ProductListScreen());
+                   },
                  ),
                 const SizedBox(height: 8),
                 SingleChildScrollView(
@@ -100,7 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 8),
                  MarkerTitleWidget(
                    title: 'New',
-                   onTap: (){},
+                   onTap: (){
+                     Get.to(const ProductListScreen());
+                   },
                  ),
                 const SizedBox(height: 8),
                 SingleChildScrollView(
