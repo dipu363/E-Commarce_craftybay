@@ -1,3 +1,7 @@
+import 'package:craftybay/ui/screen/product_review_screen.dart';
+import 'package:craftybay/ui/screen/wish_list_screen.dart';
+import 'package:get/get.dart';
+
 import '/ui/widget/common_elevated_button.dart';
 
 import '/ui/widget/product_details/product_image_carousel_widget.dart';
@@ -39,7 +43,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.back();
+          },
           icon: const Icon(Icons.arrow_back_ios),
         ),
         title: const Text('Product Details'),
@@ -92,21 +98,28 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                       ),
                                       const SizedBox(width: 8),
                                       TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Get.to(const ProductReviewScreen());
+                                        },
                                         child: const Text('Reviews'),
                                       ),
                                       const SizedBox(width: 8),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            color: primaryColor,
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        child: const Padding(
-                                          padding: EdgeInsets.all(4.0),
-                                          child: Icon(
-                                            Icons.favorite_border,
-                                            color: Colors.white,
-                                            size: 16,
+                                      InkWell(
+                                        onTap: (){
+                                          Get.to(const WishListScreen());
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: primaryColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(4.0),
+                                            child: Icon(
+                                              Icons.favorite_border,
+                                              color: Colors.white,
+                                              size: 16,
+                                            ),
                                           ),
                                         ),
                                       ),

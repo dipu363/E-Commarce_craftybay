@@ -76,7 +76,6 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                         borderSide: BorderSide(color: primaryColor, width: 2))),
 
               ),
-
               const SizedBox(
                 height: 24,
               ),
