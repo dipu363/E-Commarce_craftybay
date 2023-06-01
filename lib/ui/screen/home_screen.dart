@@ -1,6 +1,7 @@
 
-import 'package:craftybay/ui/screen/product_list_screen.dart';
-import 'package:craftybay/ui/state_managers/buttom_nav_bar_controller.dart';
+import '../screen/email_verification_screen.dart';
+import '../screen/product_list_screen.dart';
+import '../state_managers/buttom_nav_bar_controller.dart';
 
 import '../widget/caregoty_card_widget.dart';
 import '../widget/product_card_widget.dart';
@@ -32,7 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Image.asset('assets/images/logo_nav.png'),
             const Spacer(),
-            AppBarIconButton(iconData: Icons.person_outline, onTap: () {}),
+            AppBarIconButton(iconData: Icons.person_outline, onTap: () {
+              Get.to(const EmailVerificationScreen());
+
+            }),
             AppBarIconButton(iconData: Icons.call_outlined, onTap: () {}),
             AppBarIconButton(
                 iconData: Icons.notifications_outlined, onTap: () {}),
@@ -55,10 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
                 const SizedBox(height: 8),
-                 SingleChildScrollView(
+                 const SingleChildScrollView(
                    scrollDirection: Axis.horizontal,
                    child: Row(
-                     children: const [
+                     children:  [
                         CategoryCardWidget(name: 'Computer',),
                         CategoryCardWidget(name: 'Electronics',),
                         CategoryCardWidget(name: 'Food',),
@@ -76,10 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                    },
                 ),
                 const SizedBox(height: 8),
-                SingleChildScrollView(
+               const  SingleChildScrollView(
                    scrollDirection: Axis.horizontal,
                    child: Row(
-                     children: const[
+                     children:[
                        ProductCardWidget(),
                        ProductCardWidget(),
                        ProductCardWidget(),
@@ -95,10 +99,10 @@ class _HomeScreenState extends State<HomeScreen> {
                    },
                  ),
                 const SizedBox(height: 8),
-                SingleChildScrollView(
+                const SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: const[
+                    children: [
                       ProductCardWidget(),
                       ProductCardWidget(),
                       ProductCardWidget(),
@@ -114,10 +118,10 @@ class _HomeScreenState extends State<HomeScreen> {
                    },
                  ),
                 const SizedBox(height: 8),
-                SingleChildScrollView(
+                const SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: const[
+                    children: [
                       ProductCardWidget(),
                       ProductCardWidget(),
                       ProductCardWidget(),

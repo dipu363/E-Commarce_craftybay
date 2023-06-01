@@ -5,8 +5,10 @@
 // State management : GETX
 // Working flow : UI design => UI Functional => state management => API Integration
 
+import 'package:craftybay/ui/state_managers/user_auth_controller.dart';
+import 'package:get/get.dart';
+
 import '../ui/utils/app_colors.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'ui/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +25,7 @@ class CraftyBay extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-
+      initialBinding: GetXBindings(),
       themeMode: ThemeMode.light,
       darkTheme: ThemeData(
         primaryColor: Colors.black,
@@ -66,5 +68,17 @@ class CraftyBay extends StatelessWidget {
       home: const SplashScreen(),
     );
   }
+}
+
+
+
+class GetXBindings extends Bindings{
+  @override
+  void dependencies() {
+   Get.put(UserAuthController());
+
+
+  }
+
 }
 

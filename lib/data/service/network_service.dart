@@ -2,7 +2,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:craftybay/data/model/response_model.dart';
+import '/data/model/response_model.dart';
 
 import '/data/utils/urls.dart';
 import 'package:http/http.dart';
