@@ -5,6 +5,7 @@
 // State management : GETX
 // Working flow : UI design => UI Functional => state management => API Integration
 
+import 'package:craftybay/ui/state_managers/auth_controller.dart';
 import 'package:craftybay/ui/state_managers/user_auth_controller.dart';
 import 'package:get/get.dart';
 
@@ -76,7 +77,7 @@ class GetXBindings extends Bindings{
   @override
   void dependencies() {
    Get.put(UserAuthController());
-
+   Get.put(AuthController());
 
   }
 

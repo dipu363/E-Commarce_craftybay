@@ -1,7 +1,9 @@
 
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:craftybay/data/service/network_service.dart';
+import 'package:craftybay/ui/state_managers/auth_controller.dart';
 import 'package:get/get.dart';
 
 class UserAuthController extends GetxController {
@@ -42,9 +44,10 @@ class UserAuthController extends GetxController {
         url: "/VerifyLogin/$emailId/$otp");
     _otpVerificationInProgress = false;
     if (response.isSuccess) {
+      await Get.find<AuthController>().saveToken(response.returnData['data']);
       update();
-      print('status code ${response.statusCode}');
-      print('data code ${response.returnData.toString()}');
+      log('status code ${response.statusCode}');
+      log('data code ${response.returnData.toString()}');
       return true;
     } else {
       update();
