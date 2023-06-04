@@ -1,9 +1,8 @@
 
 import 'dart:convert';
 import 'dart:developer';
-
+import 'package:craftybay/ui/state_managers/auth_controller.dart';
 import '/data/model/response_model.dart';
-
 import '/data/utils/urls.dart';
 import 'package:http/http.dart';
 class NetworkService{
@@ -13,8 +12,14 @@ class NetworkService{
   NetworkService._();
 
   static Future<ResponseModel> getData({required String url}) async {
+
+
     try{
-      final Response response = await get(Uri.parse(Urls.baseUrl + url));
+      final Response response = await get(Uri.parse(Urls.baseUrl + url),headers: {
+        'Content-type':'Application/json',
+        'Accept':'Application/json',
+        'token' :AuthController.token.toString(),
+      });
 
       if (response.statusCode == 200) {
         return ResponseModel(

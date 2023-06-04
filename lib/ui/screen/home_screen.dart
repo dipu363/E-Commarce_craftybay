@@ -1,4 +1,5 @@
 
+import 'package:craftybay/ui/screen/profile_screen.dart';
 import 'package:craftybay/ui/state_managers/auth_controller.dart';
 
 import '../screen/email_verification_screen.dart';
@@ -36,12 +37,17 @@ class _HomeScreenState extends State<HomeScreen> {
             Image.asset('assets/images/logo_nav.png'),
             const Spacer(),
             AppBarIconButton(iconData: Icons.person_outline, onTap: () async{
-             final bool loginState = await Get.find<AuthController>().isLoggedIn();
+              await Get.find<AuthController>().isLoggedIn().then((value)=>{
 
-              if(loginState) {
-                Get.find<AuthController>().clearUserData();
-                Get.offAll(const EmailVerificationScreen());
-              }
+             if (value){
+               Get.to(const ProfileScreen())
+             }else{
+               Get.to(const EmailVerificationScreen())
+             }
+
+              });
+
+
             }),
             AppBarIconButton(iconData: Icons.call_outlined, onTap: () {}),
             AppBarIconButton(

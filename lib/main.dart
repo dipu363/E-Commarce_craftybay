@@ -7,6 +7,7 @@
 
 import 'package:craftybay/ui/state_managers/auth_controller.dart';
 import 'package:craftybay/ui/state_managers/user_auth_controller.dart';
+import 'package:craftybay/ui/state_managers/user_profile_controller.dart';
 import 'package:get/get.dart';
 
 import '../ui/utils/app_colors.dart';
@@ -78,6 +79,7 @@ class GetXBindings extends Bindings{
   void dependencies() {
    Get.put(UserAuthController());
    Get.put(AuthController());
+   Get.put(UserProfileController());
 
   }
 
