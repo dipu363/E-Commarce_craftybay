@@ -19,7 +19,6 @@ class OtpVerificationScreen extends StatefulWidget {
 
 class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   TextEditingController otpTextEditController = TextEditingController();
-
   UserAuthController userAuthController = Get.put(UserAuthController());
 
   @override
@@ -105,7 +104,6 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                           child: const Text('Next'),
                         ),
                       ),
-                // CommonElevatedButton(title: 'Next', onTap: () {}),
                 const SizedBox(height: 16),
                 RichText(
                   text: TextSpan(

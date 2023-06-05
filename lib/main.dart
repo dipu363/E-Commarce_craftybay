@@ -6,6 +6,7 @@
 // Working flow : UI design => UI Functional => state management => API Integration
 
 import 'package:craftybay/ui/state_managers/auth_controller.dart';
+import 'package:craftybay/ui/state_managers/home_controller.dart';
 import 'package:craftybay/ui/state_managers/user_auth_controller.dart';
 import 'package:craftybay/ui/state_managers/user_profile_controller.dart';
 import 'package:get/get.dart';
@@ -80,6 +81,7 @@ class GetXBindings extends Bindings{
    Get.put(UserAuthController());
    Get.put(AuthController());
    Get.put(UserProfileController());
+   Get.put(HomeController());
 
   }
 

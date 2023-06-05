@@ -1,22 +1,22 @@
 import 'dart:developer';
 
-import 'package:craftybay/data/model/profile_model.dart';
-import 'package:craftybay/ui/state_managers/auth_controller.dart';
+import '/data/model/profile_model.dart';
+import '/ui/state_managers/auth_controller.dart';
 import 'package:get/get.dart';
 
 import '../../data/service/network_service.dart';
 
 class UserProfileController extends GetxController{
 
-  bool _userProfileDataInPrograsse = false;
-  bool get userProfileDataInPrograsse => _userProfileDataInPrograsse;
+  bool _userProfileDataInProgress = false;
+  bool get userProfileDataInProgress => _userProfileDataInProgress;
 
 
   Future<bool> getProfileData() async {
-    _userProfileDataInPrograsse = true;
+    _userProfileDataInProgress = true;
     update();
     final response = await NetworkService.getData(url: '/ReadProfile');
-    _userProfileDataInPrograsse = false;
+    _userProfileDataInProgress = false;
     if (response.isSuccess) {
       final ProfileModel profileModel = ProfileModel.fromJson(response.returnData);
 

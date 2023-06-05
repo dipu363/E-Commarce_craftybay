@@ -1,6 +1,7 @@
 
 import 'package:craftybay/ui/screen/profile_screen.dart';
 import 'package:craftybay/ui/state_managers/auth_controller.dart';
+import 'package:craftybay/ui/state_managers/home_controller.dart';
 
 import '../screen/email_verification_screen.dart';
 import '../screen/product_list_screen.dart';
@@ -62,7 +63,16 @@ class _HomeScreenState extends State<HomeScreen> {
               children:[
                 const  SearchTextField(),
                 const SizedBox(height: 16),
-                HomeCaroselWidget(),
+                GetBuilder<HomeController>(
+                  builder: (homeController) {
+
+                    if (homeController.sliderDataInProgress){
+                      return const CircularProgressIndicator();
+                    }else {
+                      return HomeCarouselWidget(productSliderModel: homeController.productSliderModel,);
+                    }
+                  }
+                ),
                 const SizedBox(height: 8),
                  MarkerTitleWidget(
                   title: 'All Categories',

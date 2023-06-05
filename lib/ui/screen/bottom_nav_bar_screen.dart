@@ -1,3 +1,5 @@
+import 'package:craftybay/ui/state_managers/home_controller.dart';
+
 import '/ui/state_managers/buttom_nav_bar_controller.dart';
 import 'package:get/get.dart';
 import '/ui/screen/cart_screen.dart';
@@ -8,17 +10,25 @@ import 'package:flutter/material.dart';
 
 import 'category_screen.dart';
 
-class BottomNavBarScreen extends StatelessWidget {
-   BottomNavBarScreen({Key? key}) : super(key: key);
+class BottomNavBarScreen extends StatefulWidget {
+   const BottomNavBarScreen({Key? key}) : super(key: key);
 
-  final BottomNabBarController _bottomNabBarController = Get.put(BottomNabBarController());
+  @override
+  State<BottomNavBarScreen> createState() => _BottomNavBarScreenState();
+}
 
+class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   final List<Widget> _screens = const [
     HomeScreen(),
     CategoryScreen(),
     CartScreen(),
     WishListScreen()
   ];
+  @override
+  void initState() {
+   Get.find<HomeController>().getSliderData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
