@@ -14,13 +14,12 @@ class HomeController extends GetxController{
     _sliderDataInProgress = true;
     update();
     final response = await NetworkService.getData(url: '/ListProductSlider');
-
     if ( response.isSuccess){
       _sliderDataInProgress = false;
-      update();
-      print(response.returnData.toString());
-      _productSliderModel = ProductSliderModel.fromJson(response.returnData);
 
+      //print(response.returnData.toString());
+      _productSliderModel = ProductSliderModel.fromJson(response.returnData);
+      update();
       return true;
     }else{
       _sliderDataInProgress = false;

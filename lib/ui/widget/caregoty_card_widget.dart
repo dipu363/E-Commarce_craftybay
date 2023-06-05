@@ -6,10 +6,10 @@ import 'package:get/get.dart';
 
 class CategoryCardWidget extends StatelessWidget {
   const CategoryCardWidget({
-    super.key, required this.name,
+    super.key, required this.name, required this.imageUrl,
   });
 
-  final String  name;
+  final String  name ,imageUrl;
 
 
   @override
@@ -28,9 +28,9 @@ class CategoryCardWidget extends StatelessWidget {
                   color: primaryColor.withOpacity(.1),
                   borderRadius: BorderRadius.circular(8)
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Icon(Icons.computer,size: 28,color: primaryColor,),
+              child:  Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Image.network(imageUrl,height: 30,),
               ),
 
             ),

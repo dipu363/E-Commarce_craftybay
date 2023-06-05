@@ -1,4 +1,5 @@
 
+import 'package:craftybay/ui/state_managers/category_controller.dart';
 import 'package:get/get.dart';
 import '../state_managers/buttom_nav_bar_controller.dart';
 import '/ui/widget/caregoty_card_widget.dart';
@@ -24,14 +25,35 @@ class CategoryScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: GridView.builder(
-          itemCount: 30,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4
-            ),
-            itemBuilder: (context,index){
-            return const CategoryCardWidget(name: 'Dummy');
-            }),
+        child: GetBuilder<CategoryController>(
+
+          builder: (categoryController) {
+
+            if(categoryController.categoryInProgress){
+              return const Center(
+                child: SizedBox(height: 30,
+                  child: CircularProgressIndicator()
+                  ),
+              );
+            }
+            
+
+            return RefreshIndicator(
+              onRefresh: ()async{
+                Get.find<CategoryController>().getCategory();
+              },
+              child: GridView.builder(
+                itemCount: categoryController.categoryModel.categories!.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4
+                  ),
+                  itemBuilder: (context,index){
+                  return CategoryCardWidget(name: categoryController.categoryModel.categories![index].categoryName.toString(),
+                    imageUrl: categoryController.categoryModel.categories![index].categoryImg.toString());
+                  }),
+            );
+          }
+        ),
       ),
 
 

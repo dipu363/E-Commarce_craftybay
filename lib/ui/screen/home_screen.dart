@@ -7,6 +7,7 @@ import '../screen/email_verification_screen.dart';
 import '../screen/product_list_screen.dart';
 import '../state_managers/buttom_nav_bar_controller.dart';
 
+import '../state_managers/category_controller.dart';
 import '../widget/caregoty_card_widget.dart';
 import '../widget/product_card_widget.dart';
 
@@ -60,15 +61,18 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
               children:[
                 const  SearchTextField(),
                 const SizedBox(height: 16),
                 GetBuilder<HomeController>(
                   builder: (homeController) {
-
                     if (homeController.sliderDataInProgress){
-                      return const CircularProgressIndicator();
+                      return const SizedBox(
+                        height: 100,
+                          child:  CircularProgressIndicator());
                     }else {
+
                       return HomeCarouselWidget(productSliderModel: homeController.productSliderModel,);
                     }
                   }
@@ -81,18 +85,28 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
                 const SizedBox(height: 8),
-                 const SingleChildScrollView(
-                   scrollDirection: Axis.horizontal,
-                   child: Row(
-                     children:  [
-                        CategoryCardWidget(name: 'Computer',),
-                        CategoryCardWidget(name: 'Electronics',),
-                        CategoryCardWidget(name: 'Food',),
-                        CategoryCardWidget(name: 'Accessories',),
-                        CategoryCardWidget(name: 'Home Appliance',),
+                 GetBuilder<CategoryController>(
 
-                     ],
-                   ),
+                   builder: (categoryController) {
+
+                     if(categoryController.categoryInProgress){
+                       return const SizedBox(
+                         height: 100,
+                         child: CircularProgressIndicator(),
+                       );
+                     }
+                     return SingleChildScrollView(
+                       scrollDirection: Axis.horizontal,
+                       child: Row(
+                         mainAxisAlignment: MainAxisAlignment.start,
+                         children:  categoryController.categoryModel.categories!.map((e) =>
+                             CategoryCardWidget(name: e.categoryName.toString(),imageUrl: e.categoryImg.toString(),)
+                            // Text(e.categoryName.toString()),
+
+                         ).toList(),
+                       ),
+                     );
+                   }
                  ),
                 const SizedBox(height: 8),
                  MarkerTitleWidget(

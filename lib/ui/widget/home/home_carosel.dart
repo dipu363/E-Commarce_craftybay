@@ -1,15 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:craftybay/data/model/product_slider_model.dart';
 import 'package:flutter/material.dart';
 
-import '/data/model/product_slider_model.dart';
 import '../../utils/app_colors.dart';
 
 class HomeCarouselWidget extends StatelessWidget {
-  final CarouselController _carouselController = CarouselController();
-  final ValueNotifier<int> _currentCarouselIndex = ValueNotifier(0);
-  final ProductSliderModel productSliderModel;
 
   HomeCarouselWidget({super.key, required this.productSliderModel});
+   final CarouselController _carouselController = CarouselController();
+   final ValueNotifier<int> _currentCarouselIndex = ValueNotifier(0);
+
+
+   final ProductSliderModel productSliderModel ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +39,11 @@ class HomeCarouselWidget extends StatelessWidget {
                     color: primaryColor,
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
-                      image: NetworkImage(
-                        slider.image?? ''
-                      )
+                      image: NetworkImage(slider.image!)
                     )
+
                   ),
+
                   alignment: Alignment.center,
             
                 );
@@ -55,7 +58,7 @@ class HomeCarouselWidget extends StatelessWidget {
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                for (int i = 0; i < (productSliderModel.sliderData!.length); i++)
+                for (int i = 0; i <productSliderModel.sliderData!.length ; i++)
                   Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Container(

@@ -6,6 +6,8 @@
 // Working flow : UI design => UI Functional => state management => API Integration
 
 import 'package:craftybay/ui/state_managers/auth_controller.dart';
+import 'package:craftybay/ui/state_managers/buttom_nav_bar_controller.dart';
+import 'package:craftybay/ui/state_managers/category_controller.dart';
 import 'package:craftybay/ui/state_managers/home_controller.dart';
 import 'package:craftybay/ui/state_managers/user_auth_controller.dart';
 import 'package:craftybay/ui/state_managers/user_profile_controller.dart';
@@ -78,10 +80,12 @@ class CraftyBay extends StatelessWidget {
 class GetXBindings extends Bindings{
   @override
   void dependencies() {
+   Get.put(BottomNabBarController());
    Get.put(UserAuthController());
    Get.put(AuthController());
    Get.put(UserProfileController());
    Get.put(HomeController());
+   Get.put(CategoryController());
 
   }
 

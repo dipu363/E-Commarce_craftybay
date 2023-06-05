@@ -1,7 +1,9 @@
-import 'package:craftybay/ui/state_managers/home_controller.dart';
 
-import '/ui/state_managers/buttom_nav_bar_controller.dart';
+
+import 'package:craftybay/ui/state_managers/home_controller.dart';
 import 'package:get/get.dart';
+import '../state_managers/category_controller.dart';
+import '/ui/state_managers/buttom_nav_bar_controller.dart';
 import '/ui/screen/cart_screen.dart';
 import '/ui/screen/home_screen.dart';
 import '/ui/screen/wish_list_screen.dart';
@@ -24,10 +26,13 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     CartScreen(),
     WishListScreen()
   ];
+
   @override
   void initState() {
-   Get.find<HomeController>().getSliderData();
     super.initState();
+
+    Get.find<HomeController>().getSliderData();
+    Get.find<CategoryController>().getCategory();
   }
 
   @override
