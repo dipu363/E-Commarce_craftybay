@@ -1,5 +1,4 @@
 
-import '/ui/widget/product_card_widget.dart';
 
 import '/ui/state_managers/buttom_nav_bar_controller.dart';
 
@@ -32,7 +31,8 @@ class ProductListScreen extends StatelessWidget {
             childAspectRatio: .7
       ),
           itemBuilder: (context,index){
-            return const ProductCardWidget();
+            const Text('null');
+           // return const ProductCardWidget();
 
       }),
     );

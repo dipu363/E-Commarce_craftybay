@@ -1,7 +1,10 @@
 
-import 'package:craftybay/ui/screen/profile_screen.dart';
-import 'package:craftybay/ui/state_managers/auth_controller.dart';
-import 'package:craftybay/ui/state_managers/home_controller.dart';
+import '/ui/screen/profile_screen.dart';
+import '/ui/state_managers/auth_controller.dart';
+import '/ui/state_managers/home_controller.dart';
+import '/ui/state_managers/new_product_controller.dart';
+import '/ui/state_managers/popular_product_controller.dart';
+import '/ui/state_managers/special_product_controller.dart';
 
 import '../screen/email_verification_screen.dart';
 import '../screen/product_list_screen.dart';
@@ -116,17 +119,29 @@ class _HomeScreenState extends State<HomeScreen> {
                    },
                 ),
                 const SizedBox(height: 8),
-               const  SingleChildScrollView(
-                   scrollDirection: Axis.horizontal,
-                   child: Row(
-                     children:[
-                       ProductCardWidget(),
-                       ProductCardWidget(),
-                       ProductCardWidget(),
-                       ProductCardWidget(),
-                     ],
-                   ),
-                 ),
+                GetBuilder<PopularProductByRemarkController>(
+
+                    builder: (popularProductByRemarkController) {
+
+                      if(popularProductByRemarkController.popularProductRemarkInProgress){
+                        return const SizedBox(
+                          height: 100,
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:  popularProductByRemarkController.popularProducts.product!.map((product) => ProductCardWidget(
+                                product: product,
+                              )
+
+                          ).toList(),
+                        ),
+                      );
+                    }
+                ),
                 const SizedBox(height: 8),
                  MarkerTitleWidget(
                    title: 'Spacial',
@@ -135,16 +150,29 @@ class _HomeScreenState extends State<HomeScreen> {
                    },
                  ),
                 const SizedBox(height: 8),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ProductCardWidget(),
-                      ProductCardWidget(),
-                      ProductCardWidget(),
-                      ProductCardWidget(),
-                    ],
-                  ),
+
+                GetBuilder<SpecialProductByRemarkController>(
+
+                    builder: (specialProductByRemarkController) {
+
+                      if(specialProductByRemarkController.specialProductRemarkInProgress){
+                        return const SizedBox(
+                          height: 100,
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:  specialProductByRemarkController.specialProducts.product!.map((product) => ProductCardWidget(
+                            product: product,
+                          )
+
+                          ).toList(),
+                        ),
+                      );
+                    }
                 ),
                 const SizedBox(height: 8),
                  MarkerTitleWidget(
@@ -154,16 +182,30 @@ class _HomeScreenState extends State<HomeScreen> {
                    },
                  ),
                 const SizedBox(height: 8),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ProductCardWidget(),
-                      ProductCardWidget(),
-                      ProductCardWidget(),
-                      ProductCardWidget(),
-                    ],
-                  ),
+
+
+                GetBuilder<NewProductByRemarkController>(
+
+                    builder: (newProductByRemarkController) {
+
+                      if(newProductByRemarkController.newProductRemarkInProgress){
+                        return const SizedBox(
+                          height: 100,
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:  newProductByRemarkController.newProducts.product!.map((product) => ProductCardWidget(
+                            product: product,
+                          )
+
+                          ).toList(),
+                        ),
+                      );
+                    }
                 ),
           ],
           ),

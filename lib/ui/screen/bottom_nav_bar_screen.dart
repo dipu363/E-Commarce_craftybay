@@ -1,8 +1,11 @@
 
 
 import 'package:craftybay/ui/state_managers/home_controller.dart';
+import 'package:craftybay/ui/state_managers/new_product_controller.dart';
 import 'package:get/get.dart';
 import '../state_managers/category_controller.dart';
+import '../state_managers/popular_product_controller.dart';
+import '../state_managers/special_product_controller.dart';
 import '/ui/state_managers/buttom_nav_bar_controller.dart';
 import '/ui/screen/cart_screen.dart';
 import '/ui/screen/home_screen.dart';
@@ -33,6 +36,9 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
     Get.find<HomeController>().getSliderData();
     Get.find<CategoryController>().getCategory();
+    Get.find<PopularProductByRemarkController>().getPopularProductByRemark();
+    Get.find<SpecialProductByRemarkController>().getSpecialProductByRemark();
+    Get.find<NewProductByRemarkController>().getNewProductByRemark();
   }
 
   @override

@@ -1,9 +1,7 @@
-import 'package:craftybay/ui/widget/product_card_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../state_managers/buttom_nav_bar_controller.dart';
-import '../widget/caregoty_card_widget.dart';
 class WishListScreen extends StatelessWidget {
   const WishListScreen({Key? key}) : super(key: key);
 
@@ -30,7 +28,9 @@ class WishListScreen extends StatelessWidget {
             childAspectRatio: .71
           ),
           itemBuilder: (context,index){
-            return const ProductCardWidget();
+
+            const Text('null');
+           // return const ProductCardWidget();
 
           }),
     );
