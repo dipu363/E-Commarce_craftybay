@@ -1,11 +1,12 @@
-import '/data/model/product.dart';
-class ProductRemarkModel {
+import 'package:craftybay/data/model/product.dart';
+
+class ProductByCategoryModel {
   String? msg;
   List<Product>? product;
 
-  ProductRemarkModel({this.msg, this.product});
+  ProductByCategoryModel({this.msg, this.product});
 
-  ProductRemarkModel.fromJson(Map<String, dynamic> json) {
+  ProductByCategoryModel.fromJson(Map<String, dynamic> json) {
     msg = json['msg'];
     if (json['data'] != null) {
       product = <Product>[];
@@ -23,8 +24,5 @@ class ProductRemarkModel {
     }
     return data;
   }
-
 }
-
-
 

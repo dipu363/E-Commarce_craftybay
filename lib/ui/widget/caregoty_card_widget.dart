@@ -6,17 +6,19 @@ import 'package:get/get.dart';
 
 class CategoryCardWidget extends StatelessWidget {
   const CategoryCardWidget({
-    super.key, required this.name, required this.imageUrl,
+    super.key, required this.name, required this.imageUrl, required this.id,
   });
 
   final String  name ,imageUrl;
+  final int id;
 
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.to(const ProductListScreen());
+        Get.to( ProductListScreen(
+            categoryId: id ));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6.0),

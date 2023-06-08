@@ -4,9 +4,15 @@ import 'package:get/get.dart';
 import '../state_managers/buttom_nav_bar_controller.dart';
 import '/ui/widget/caregoty_card_widget.dart';
 import 'package:flutter/material.dart';
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);
 
+
+  @override
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +42,7 @@ class CategoryScreen extends StatelessWidget {
                   ),
               );
             }
-            
+
 
             return RefreshIndicator(
               onRefresh: ()async{
@@ -49,7 +55,11 @@ class CategoryScreen extends StatelessWidget {
                   ),
                   itemBuilder: (context,index){
                   return CategoryCardWidget(name: categoryController.categoryModel.categories![index].categoryName.toString(),
-                    imageUrl: categoryController.categoryModel.categories![index].categoryImg.toString());
+                    imageUrl: categoryController.categoryModel.categories![index].categoryImg.toString(),
+                    id: categoryController.categoryModel.categories![index].id ?? 0,
+
+                  );
+
                   }),
             );
           }

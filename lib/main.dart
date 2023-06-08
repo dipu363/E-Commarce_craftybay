@@ -11,6 +11,7 @@ import 'package:craftybay/ui/state_managers/category_controller.dart';
 import 'package:craftybay/ui/state_managers/home_controller.dart';
 import 'package:craftybay/ui/state_managers/new_product_controller.dart';
 import 'package:craftybay/ui/state_managers/popular_product_controller.dart';
+import 'package:craftybay/ui/state_managers/product_controller.dart';
 import 'package:craftybay/ui/state_managers/special_product_controller.dart';
 import 'package:craftybay/ui/state_managers/user_auth_controller.dart';
 import 'package:craftybay/ui/state_managers/user_profile_controller.dart';
@@ -92,6 +93,7 @@ class GetXBindings extends Bindings{
    Get.put(PopularProductByRemarkController());
    Get.put(SpecialProductByRemarkController());
    Get.put(NewProductByRemarkController());
+   Get.put(ProductController());
 
   }
 

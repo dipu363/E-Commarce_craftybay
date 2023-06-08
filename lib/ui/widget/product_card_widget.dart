@@ -23,7 +23,7 @@ class ProductCardWidget extends StatelessWidget {
         child: Card(
           elevation: 3,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.network(
                 product.image!,
@@ -69,14 +69,14 @@ class ProductCardWidget extends StatelessWidget {
                               )
                             ],
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(width: 4),
                           Container(
                             decoration: BoxDecoration(
                                 color: primaryColor,
-                                borderRadius: BorderRadius.circular(5)),
-                            child: const Padding(
-                              padding: EdgeInsets.all(4.0),
-                              child: Icon(
+                                borderRadius: BorderRadius.circular(2)),
+                            child:const Padding(
+                              padding:  EdgeInsets.all(2.0),
+                              child:  Icon(
                                 Icons.favorite_border,
                                 color: Colors.white,
                                 size: 12,

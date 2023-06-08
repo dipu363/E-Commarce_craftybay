@@ -7,7 +7,6 @@ import '/ui/state_managers/popular_product_controller.dart';
 import '/ui/state_managers/special_product_controller.dart';
 
 import '../screen/email_verification_screen.dart';
-import '../screen/product_list_screen.dart';
 import '../state_managers/buttom_nav_bar_controller.dart';
 
 import '../state_managers/category_controller.dart';
@@ -72,8 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (homeController) {
                     if (homeController.sliderDataInProgress){
                       return const SizedBox(
-                        height: 100,
-                          child:  CircularProgressIndicator());
+                        height: 50,
+                          child:  Center(child: CircularProgressIndicator()));
                     }else {
 
                       return HomeCarouselWidget(productSliderModel: homeController.productSliderModel,);
@@ -94,8 +93,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                      if(categoryController.categoryInProgress){
                        return const SizedBox(
-                         height: 100,
-                         child: CircularProgressIndicator(),
+                         height: 50,
+                         child: Center(child: CircularProgressIndicator()),
                        );
                      }
                      return SingleChildScrollView(
@@ -103,7 +102,11 @@ class _HomeScreenState extends State<HomeScreen> {
                        child: Row(
                          mainAxisAlignment: MainAxisAlignment.start,
                          children:  categoryController.categoryModel.categories!.map((e) =>
-                             CategoryCardWidget(name: e.categoryName.toString(),imageUrl: e.categoryImg.toString(),)
+                             CategoryCardWidget(
+                               name: e.categoryName.toString(),
+                               imageUrl: e.categoryImg.toString(),
+                               id: e.id ?? 0,
+                             )
                             // Text(e.categoryName.toString()),
 
                          ).toList(),
@@ -115,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  MarkerTitleWidget(
                   title: 'Popular',
                    onTap: (){
-                     Get.to(const ProductListScreen());
+                     //Get.to(const ProductListScreen());
                    },
                 ),
                 const SizedBox(height: 8),
@@ -125,8 +128,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       if(popularProductByRemarkController.popularProductRemarkInProgress){
                         return const SizedBox(
-                          height: 100,
-                          child: CircularProgressIndicator(),
+                          height: 50,
+                          child: Center(child: CircularProgressIndicator()),
                         );
                       }
                       return SingleChildScrollView(
@@ -146,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  MarkerTitleWidget(
                    title: 'Spacial',
                    onTap: (){
-                     Get.to(const ProductListScreen());
+                     //Get.to(const ProductListScreen());
                    },
                  ),
                 const SizedBox(height: 8),
@@ -157,8 +160,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       if(specialProductByRemarkController.specialProductRemarkInProgress){
                         return const SizedBox(
-                          height: 100,
-                          child: CircularProgressIndicator(),
+                          height: 50,
+                          child: Center(child: CircularProgressIndicator()),
                         );
                       }
                       return SingleChildScrollView(
@@ -178,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  MarkerTitleWidget(
                    title: 'New',
                    onTap: (){
-                     Get.to(const ProductListScreen());
+                     //Get.to(const ProductListScreen());
                    },
                  ),
                 const SizedBox(height: 8),
@@ -190,8 +193,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       if(newProductByRemarkController.newProductRemarkInProgress){
                         return const SizedBox(
-                          height: 100,
-                          child: CircularProgressIndicator(),
+                          height: 50,
+                          child: Center(child: CircularProgressIndicator()),
                         );
                       }
                       return SingleChildScrollView(

@@ -13,7 +13,7 @@ class BottomNabBarController extends GetxController{
   }
 
   void backHome(){
-    if(selectedIndex !=0){
+    if(selectedIndex !=0) {
       _selectedIndex = 0;
       update();
     }

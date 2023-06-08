@@ -1,4 +1,4 @@
-import '/data/model/product_remark_model.dart';
+import 'package:craftybay/data/model/product_by_category_model.dart';
 import '/data/service/network_service.dart';
 import 'package:get/get.dart';
 
@@ -6,8 +6,8 @@ class PopularProductByRemarkController extends GetxController {
   bool _popularProductRemarkInProgress = false;
   bool get popularProductRemarkInProgress => _popularProductRemarkInProgress;
 
-  ProductRemarkModel _popularProducts = ProductRemarkModel();
-  ProductRemarkModel get popularProducts => _popularProducts;
+  ProductByCategoryModel _popularProducts = ProductByCategoryModel();
+  ProductByCategoryModel get popularProducts => _popularProducts;
 
   Future<bool> getPopularProductByRemark() async {
     _popularProductRemarkInProgress = true;
@@ -16,7 +16,7 @@ class PopularProductByRemarkController extends GetxController {
         await NetworkService.getData(url: '/ListProductByRemark/popular');
 
     if (response.isSuccess) {
-      _popularProducts = ProductRemarkModel.fromJson(response.returnData);
+      _popularProducts = ProductByCategoryModel.fromJson(response.returnData);
       _popularProductRemarkInProgress = false;
       update();
       return true;
